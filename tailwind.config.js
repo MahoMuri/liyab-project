@@ -13,7 +13,31 @@ export default {
           white: "#F8F8F8",
         },
       },
+      fontFamily: {
+        primary: ["Montserrat", "sans-serif"],
+        secondary: ["Open Sans", "sans-serif"],
+      },
     },
   },
-  plugins: [],
+  daisyui: {
+    themes: [
+      {
+        liyab: {
+          primary: "#212121",
+          secondary: "#241E20",
+          accent: "#B11E0A",
+          neutral: "#333c4d",
+          "base-100": "#f3f4f6",
+          info: "#3abff8",
+          success: "#36d399",
+          warning: "#fbbd23",
+          error: "#f87272",
+        },
+      },
+    ],
+  },
+  plugins: [
+    // eslint-disable-next-line no-undef
+    require("daisyui"),
+  ],
 };
