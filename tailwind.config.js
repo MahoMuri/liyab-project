@@ -9,7 +9,7 @@ export default {
           darker: "#241E20",
           "hot-red": "#B11E0A",
           "warm-yellow": "#F1BB64",
-          "flammable-orange:": "#D6C8BD",
+          "flammable-orange": "#D6C8BD",
           white: "#F8F8F8",
         },
       },

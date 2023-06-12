@@ -1,5 +1,6 @@
 import logo from "../assets/logo.svg";
 import { NavLink } from "react-router-dom";
+import { Icon } from "@iconify/react";
 
 export default function NavBar() {
   return (
@@ -9,30 +10,21 @@ export default function NavBar() {
     //     <h1 className="text-liyab-hot-red">Liyab</h1>
     //   </div>
     // </nav>
-    <nav className="navbar ">
+    <nav className="p-4 navbar">
       <div className="navbar-start">
         {/* Hamburger Menu */}
         <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-5 h-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
+          <label tabIndex={0} className="text-white swap swap-rotate btn btn-circle btn-outline lg:hidden">
+            {/* hidden checkbox to control state */}
+            <input type="checkbox" />
+            <Icon className="swap-on" icon="line-md:menu" width={24} />
+            <Icon
+              className="swap-off"
+              icon="iconamoon:close-duotone"
+              width={24}
+            />
           </label>
-          <ul
-            tabIndex={0}
-            className="p-2 mt-3 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
-          >
+          <ul tabIndex={0} className="p-2 mt-3 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
             <li>
               <a>Item 1</a>
             </li>
@@ -52,11 +44,87 @@ export default function NavBar() {
             </li>
           </ul>
         </div>
-        <img className="mr-auto" width={60} src={logo} alt="Liyab Logo" />
+        <img
+          className="hidden lg:block"
+          width={60}
+          src={logo}
+          alt="Liyab Logo"
+        />
       </div>
-      <div className="hidden navbar-center lg:flex">
-        <NavLink to={"/"}>Home</NavLink>
+      {/* Nav Links */}
+      <div className="hidden gap-5 text-xl text-white navbar-center lg:flex font-primary">
+        <NavLink to={"/"}>
+          {({ isActive }) => (
+            <div className="transition duration-300 group">
+              Home
+              <span
+                className={
+                  isActive
+                    ? "block max-w-full h-0.5 bg-white"
+                    : "block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white"
+                }
+              ></span>
+            </div>
+          )}
+        </NavLink>
+        <NavLink to={"/meetus"}>
+          {({ isActive }) => (
+            <div className="transition duration-300 group">
+              Meet Us
+              <span
+                className={
+                  isActive
+                    ? "block max-w-full h-0.5 bg-white"
+                    : "block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white"
+                }
+              ></span>
+            </div>
+          )}
+        </NavLink>
+        <NavLink to={"/contact"}>
+          {({ isActive }) => (
+            <div className="transition duration-300 group">
+              Contact Us
+              <span
+                className={
+                  isActive
+                    ? "block max-w-full h-0.5 bg-white"
+                    : "block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white"
+                }
+              ></span>
+            </div>
+          )}
+        </NavLink>
+        <NavLink to={"/events"}>
+          {({ isActive }) => (
+            <div className="transition duration-300 group">
+              Events
+              <span
+                className={
+                  isActive
+                    ? "block max-w-full h-0.5 bg-white"
+                    : "block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white"
+                }
+              ></span>
+            </div>
+          )}
+        </NavLink>
+        <NavLink to={"/highlights"}>
+          {({ isActive }) => (
+            <div className="transition duration-300 group">
+              Artist Highlights
+              <span
+                className={
+                  isActive
+                    ? "block max-w-full h-0.5 bg-white"
+                    : "block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white"
+                }
+              ></span>
+            </div>
+          )}
+        </NavLink>
       </div>
+      <div className="navbar-end"></div>
     </nav>
   );
 }
